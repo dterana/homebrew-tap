@@ -3,7 +3,9 @@
 [Bitseal](https://github.com/dterana/bitseal) is a future-proof file encryption CLI with versioned formats.
 
 ```bash
-brew install dterana/tap/bitseal
+brew tap dterana/tap
+brew trust --tap dterana/tap   # Homebrew 7 only loads third-party taps you have trusted
+brew install bitseal
 bitseal version
 ```
 

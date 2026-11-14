@@ -19,7 +19,9 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - name: Tap this repository
-        run: brew tap dterana/tap "$GITHUB_WORKSPACE"
+        run: |
+          brew tap dterana/tap "$GITHUB_WORKSPACE"
+          brew trust --tap dterana/tap
       - name: Audit
         run: brew audit --strict dterana/tap/bitseal
       - name: Install
