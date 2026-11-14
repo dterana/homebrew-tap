@@ -1,0 +1,28 @@
+name: Test formula
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  brew:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v7
+      - name: Tap this repository
+        run: brew tap dterana/tap "$GITHUB_WORKSPACE"
+      - name: Audit
+        run: brew audit --strict dterana/tap/bitseal
+      - name: Install
+        run: brew install dterana/tap/bitseal
+      - name: Test
+        run: brew test dterana/tap/bitseal

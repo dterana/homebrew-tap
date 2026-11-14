@@ -1,0 +1,36 @@
+name: Update formula
+
+on:
+  schedule:
+    - cron: '17 5 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Regenerate the formula from the latest release
+        id: gen
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: echo "tag=$(./scripts/update-formula.sh)" >> "$GITHUB_OUTPUT"
+      - name: Commit if the formula changed
+        run: |
+          if git diff --quiet; then
+            echo "formula is already at ${{ steps.gen.outputs.tag }}"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "bitseal ${{ steps.gen.outputs.tag }}"
+          git push
+
+  # Pushes made with the workflow token do not trigger other workflows, so the
+  # formula is tested explicitly after an update.
+  verify:
+    needs: update
+    uses: ./.github/workflows/test-formula.yml
