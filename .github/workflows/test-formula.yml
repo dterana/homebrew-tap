@@ -26,8 +26,8 @@ jobs:
           brew tap dterana/tap "$GITHUB_WORKSPACE"
           brew trust --tap dterana/tap
       - name: Audit
-        run: brew audit --strict dterana/tap/bitseal
+        run: brew audit --strict dterana/tap/casemate
       - name: Install
-        run: brew install dterana/tap/bitseal
+        run: brew install dterana/tap/casemate
       - name: Test
-        run: brew test dterana/tap/bitseal
+        run: brew test dterana/tap/casemate

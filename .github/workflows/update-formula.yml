@@ -26,7 +26,7 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -am "bitseal ${{ steps.gen.outputs.tag }}"
+          git commit -am "casemate ${{ steps.gen.outputs.tag }}"
           git push
 
   # Pushes made with the workflow token do not trigger other workflows, so the
