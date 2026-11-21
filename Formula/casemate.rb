@@ -5,23 +5,23 @@ class Casemate < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/dterana/casemate/releases/download/v0.6.1/casemate_0.6.1_darwin_arm64.tar.gz"
-      sha256 "202602fec4d615070116124897506054ac94600b86b8ea0ba9ab3fbdb1f59f94"
+      url "https://github.com/dterana/casemate/releases/download/v0.7.0/casemate_0.7.0_darwin_arm64.tar.gz"
+      sha256 "f4f4eba36182b8145d3dfc07a4eac2a28bd39f9a91cd753b3fcaaa5e22211089"
     end
     on_intel do
-      url "https://github.com/dterana/casemate/releases/download/v0.6.1/casemate_0.6.1_darwin_amd64.tar.gz"
-      sha256 "7283621ead593b024f7f668c5673734b5d376751d73d78ee5187748e0855f228"
+      url "https://github.com/dterana/casemate/releases/download/v0.7.0/casemate_0.7.0_darwin_amd64.tar.gz"
+      sha256 "1e3f7622ec4205430af92022a13d6de906849443cbeeb48d18d43f88da4c2648"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/dterana/casemate/releases/download/v0.6.1/casemate_0.6.1_linux_arm64.tar.gz"
-      sha256 "33dfe4afb8236caf1d9727f89a6a35ad5150460a43f3a34bc898c336dd64f46d"
+      url "https://github.com/dterana/casemate/releases/download/v0.7.0/casemate_0.7.0_linux_arm64.tar.gz"
+      sha256 "fa629452e3f3ccc73e8dbc7b22d3836ad91bf93b23fbd64171c717506fee0d1c"
     end
     on_intel do
-      url "https://github.com/dterana/casemate/releases/download/v0.6.1/casemate_0.6.1_linux_amd64.tar.gz"
-      sha256 "0af50af4abca60c5028a6ac09c099e557001c4634d56b4bd4e822601dcc57c62"
+      url "https://github.com/dterana/casemate/releases/download/v0.7.0/casemate_0.7.0_linux_amd64.tar.gz"
+      sha256 "c0e423ece326853127683a2440759b60058067b9900b94959c0e86529902f20e"
     end
   end
 
