@@ -5,28 +5,32 @@ class Casemate < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/dterana/casemate/releases/download/v0.7.0/casemate_0.7.0_darwin_arm64.tar.gz"
-      sha256 "f4f4eba36182b8145d3dfc07a4eac2a28bd39f9a91cd753b3fcaaa5e22211089"
+      url "https://github.com/dterana/casemate/releases/download/v0.8.0/casemate_0.8.0_darwin_arm64.tar.gz"
+      sha256 "8d1b20ef3dcc5839c66f71ebdab2fcbaf05cb86bc79d9de888e6470a209b3b82"
     end
     on_intel do
-      url "https://github.com/dterana/casemate/releases/download/v0.7.0/casemate_0.7.0_darwin_amd64.tar.gz"
-      sha256 "1e3f7622ec4205430af92022a13d6de906849443cbeeb48d18d43f88da4c2648"
+      url "https://github.com/dterana/casemate/releases/download/v0.8.0/casemate_0.8.0_darwin_amd64.tar.gz"
+      sha256 "9e634470ebdd353ddcbed3f23a59d9fba83bec614a65e702a8311b76b093366a"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/dterana/casemate/releases/download/v0.7.0/casemate_0.7.0_linux_arm64.tar.gz"
-      sha256 "fa629452e3f3ccc73e8dbc7b22d3836ad91bf93b23fbd64171c717506fee0d1c"
+      url "https://github.com/dterana/casemate/releases/download/v0.8.0/casemate_0.8.0_linux_arm64.tar.gz"
+      sha256 "e24b21b78861bb5684c5cd1865f5eb333117514b6faf3d6cd1472a44c5e49d47"
     end
     on_intel do
-      url "https://github.com/dterana/casemate/releases/download/v0.7.0/casemate_0.7.0_linux_amd64.tar.gz"
-      sha256 "c0e423ece326853127683a2440759b60058067b9900b94959c0e86529902f20e"
+      url "https://github.com/dterana/casemate/releases/download/v0.8.0/casemate_0.8.0_linux_amd64.tar.gz"
+      sha256 "7fd233ceae06fea4e98e454650fc15844bd439d1ddd181c9a4ab9e4ab312eed2"
     end
   end
 
   def install
     bin.install "casemate"
+    bash_completion.install "completions/casemate.bash" => "casemate"
+    zsh_completion.install "completions/casemate.zsh" => "_casemate"
+    fish_completion.install "completions/casemate.fish"
+    man1.install "man/casemate.1"
   end
 
   test do

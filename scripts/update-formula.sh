@@ -45,6 +45,10 @@ class Casemate < Formula
 
   def install
     bin.install "casemate"
+    bash_completion.install "completions/casemate.bash" => "casemate"
+    zsh_completion.install "completions/casemate.zsh" => "_casemate"
+    fish_completion.install "completions/casemate.fish"
+    man1.install "man/casemate.1"
   end
 
   test do
